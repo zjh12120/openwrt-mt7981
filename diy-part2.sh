@@ -20,4 +20,4 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/M
 #sed -i 's/OpenWrt/P3TERX-Router/g' package/base-files/files/bin/config_generate
 
 # Modify applications
-get clone https://github.com/vernesong/OpenClash.git package/openclash
+git clone https://github.com/vernesong/OpenClash.git package/openclash
