@@ -33,16 +33,16 @@ jobs:
   build:
     runs-on: ubuntu-22.04
     
-    # 添加缓存配置  
-    caches:
-      openwrt-source:  
-        paths:     
-          - /workdir/openwrt  
-        key: ${{ runner.os }}-openwrt-${{ hashFiles('**/openwrt/include/target.mk') }}
-  
     steps:
     - name: Checkout
       uses: actions/checkout@main
+
+    - name: Cache OpenWrt packages  
+      id: cache-openwrt-packages  
+      uses: actions/cache@v3  
+      with:  
+        path: /workdir/openwrt/package  
+        key: ${{ runner.os }}-openwrt-package-${{ hashFiles('**/openwrt/package/**') }}  
 
     - name: Initialization environment
       env:
